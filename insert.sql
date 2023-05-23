@@ -3,7 +3,8 @@ VALUES ('São Paulo', 1),
 ('Rio de Janeiro', 2), 
 ('Belo Horizonte', 3), 
 ('Salvador', 4), 
-('Curitiba', 5);
+('Curitiba', 5),
+('Marília',1);
 
 
 
