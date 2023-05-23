@@ -18,6 +18,8 @@ CREATE TABLE ingredientes(
     nome VARCHAR(80) NOT NULL,
     tamanho DECIMAL(10.2) NOT NULL,
     valor_unitario DECIMAL(10.2) NOT NULL,
+    descricao VARCHAR(120),
+    imagem BLOB,
 
     PRIMARY KEY(id)
 );
@@ -39,6 +41,7 @@ CREATE TABLE receitas(
     taxa DECIMAL(10.2) NOT NULL,
     preco_custo DECIMAL(10.2),
     rendimento INT NOT NULL,
+    codigo_produto INT NOT NULL,
 
     PRIMARY KEY (id)
 );

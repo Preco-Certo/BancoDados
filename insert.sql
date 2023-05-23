@@ -4,7 +4,7 @@ VALUES ('São Paulo', 1),
 ('Belo Horizonte', 3), 
 ('Salvador', 4), 
 ('Curitiba', 5),
-('Marília',1);
+('Marília',1),
 ('Pompeia',1);
 
 
