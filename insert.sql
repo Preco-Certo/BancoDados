@@ -5,6 +5,7 @@ VALUES ('São Paulo', 1),
 ('Salvador', 4), 
 ('Curitiba', 5),
 ('Marília',1);
+('Pompeia',1);
 
 
 
