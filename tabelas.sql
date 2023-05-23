@@ -1,10 +1,14 @@
 
-CREATE TABLE pedidos_ingredientes(
+CREATE DATABASE bdprecocerto;
+
+USE bdprecocerto;
+
+CREATE TABLE compra_ingredientes(
     codigo_ingrediente INT NOT NULL,   
-    codigo_fornecedor INT NOT NULL,   
+    codigo_compra INT NOT NULL,   
     quantidade INT NOT NULL,
     valor DECIMAL(10.2) NOT NULL,
-    PRIMARY KEY(codigo_ingrediente, codigo_fornecedor)
+    PRIMARY KEY(codigo_ingrediente, codigo_compra)
 );
 
 
