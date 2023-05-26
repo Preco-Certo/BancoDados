@@ -27,6 +27,8 @@ DELETE FROM <nome da tabela>;
 
 
 
+-- apagar a tabela clientes com os id's maior que 1
+delete from clientes where id > 0;
 -- Resetar auto increment
 ALTER TABLE <nome da tabela> AUTO_INCREMENT = 1;
 
@@ -38,6 +40,3 @@ ADD CONSTRAINT <constante de junção entre as duas>
 FOREIGN KEY (<nome do campo que é uma fk>) 
 REFERENCES <tabela que deseja ligar> (<campo estrangeiro>);
 
-
-delete from clientes where id > 0;
--- apagar a tabela clientes com os id's maior que 1

@@ -112,7 +112,7 @@ CREATE TABLE pagamento(
     id INT NOT NULL AUTO_INCREMENT,
     data DATE NOT NULL,
     valor_pagamento DECIMAL(10.2) NOT NULL,
-    codigo_pagamento INT NOT NULL,              
+    codigo_pedido INT NOT NULL,              
     tipo_pagamento INT NOT NULL,
 
     PRIMARY KEY(id)
@@ -162,8 +162,8 @@ CREATE TABLE fornecedores(
     id INT NOT NULL auto_increment,
     razaosocial VARCHAR(80) NOT NULL,
     nome_fantasia VARCHAR(80) NOT NULL,
-    cpf_cnpj VARCHAR(14) NOT NULL,
-    rg_ie VARCHAR(14) NOT NULL,
+    cpf_cnpj VARCHAR(50) NOT NULL,
+    rg_ie VARCHAR(50) NOT NULL,
     rua INT NOT NULL,      
     numero VARCHAR(80) NOT NULL,
     complemento VARCHAR(80) NOT NULL,

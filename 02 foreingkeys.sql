@@ -6,7 +6,7 @@ ALTER TABLE bairro ADD CONSTRAINT fk_bairro_cidade FOREIGN KEY (codigo_cidade) R
 ALTER TABLE pedidos ADD CONSTRAINT fk_pedido_cliente FOREIGN KEY (codigo_cliente) REFERENCES clientes (id);
 ALTER TABLE pedidos ADD CONSTRAINT fk_pedido_funcionario FOREIGN KEY (codigo_funcionario) REFERENCES funcionarios (id);
 ALTER TABLE clientes ADD CONSTRAINT fk_cliente_rua FOREIGN KEY (rua) REFERENCES rua (id);
-ALTER TABLE pagamento ADD CONSTRAINT fk_codigopagamento_pedidos FOREIGN KEY (codigo_pagamento) REFERENCES pedidos (id);
+ALTER TABLE pagamento ADD CONSTRAINT fk_codigopagamento_pedidos FOREIGN KEY (codigo_pedido) REFERENCES pedidos (id);
 ALTER TABLE pagamento ADD CONSTRAINT fk_tipopagamento_pedidos FOREIGN KEY (tipo_pagamento) REFERENCES tipo_pagamento (id);
 ALTER TABLE funcionarios ADD CONSTRAINT fk_funcionario_rua FOREIGN KEY (rua) REFERENCES rua (id);
 ALTER TABLE preco ADD CONSTRAINT fk_preco_produto FOREIGN KEY (codigo_produto) REFERENCES produtos (id);
