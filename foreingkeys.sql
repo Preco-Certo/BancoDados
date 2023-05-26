@@ -12,8 +12,12 @@ ALTER TABLE funcionarios ADD CONSTRAINT fk_funcionario_rua FOREIGN KEY (rua) REF
 ALTER TABLE preco ADD CONSTRAINT fk_preco_produto FOREIGN KEY (codigo_produto) REFERENCES produtos (id);
 ALTER TABLE produtos ADD CONSTRAINT fk_pedido_receita FOREIGN KEY (codigo_receita) REFERENCES receitas (id);
 ALTER TABLE produtos_pedidos ADD CONSTRAINT fk_produto_produtos FOREIGN KEY (codigo_produto) REFERENCES produtos (id);
-ALTER TABLE ingredientes_receitas ADD CONSTRAINT fk_ingrediente_ingredientes FOREIGN KEY (codigo_ingrediente) REFERENCES ingredientes (id);
-ALTER TABLE pedidos_ingredientes ADD CONSTRAINT fk_pedido_ingrediente FOREIGN KEY (codigo_ingrediente) REFERENCES ingredientes (id);
+
+ALTER TABLE produtos_pedidos ADD CONSTRAINT fk_pedido_ingrediente FOREIGN KEY (codigo_produto) REFERENCES produtos (id);
 ALTER TABLE produtos_pedidos ADD CONSTRAINT fk_pedido_pedidos FOREIGN KEY (codigo_pedido) REFERENCES pedidos (id);
+
+ALTER TABLE compra_ingredientes ADD CONSTRAINT fk_compraS_ingrediente FOREIGN KEY (codigo_ingrediente) REFERENCES ingredientes (id);
+ALTER TABLE compra_ingredientes ADD CONSTRAINT fk_compra_ingredienteS FOREIGN KEY (codigo_compra) REFERENCES compra (id);
+
 ALTER TABLE ingredientes_receitas ADD CONSTRAINT fk_receita_receitas FOREIGN KEY (codigo_receita) REFERENCES receitas (id);
-ALTER TABLE pedidos_ingredientes ADD CONSTRAINT fk_pedido_forncedor FOREIGN KEY (codigo_fornecedor) REFERENCES fornecedores (id);
+ALTER TABLE ingredientes_receitas ADD CONSTRAINT fk_ingrediente_ingredientes FOREIGN KEY (codigo_ingrediente) REFERENCES ingredientes (id);

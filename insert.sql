@@ -1,3 +1,14 @@
+INSERT INTO estado (nome, uf) 
+VALUES ('São Paulo','SP'), 
+('Rio de Janeiro','RJ'), 
+('Mina Gerais','MG'), 
+('Bahia','BA'), 
+('Paraná','PR');
+
+
+delete from cidade where id > 0;
+ALTER TABLE cidade AUTO_INCREMENT = 1;
+
 INSERT INTO cidade (nome, codigo_estado) 
 VALUES ('São Paulo', 1), 
 ('Rio de Janeiro', 2), 
@@ -6,8 +17,8 @@ VALUES ('São Paulo', 1),
 ('Curitiba', 5),
 ('Marília',1);
 
-
-
+delete from bairro where id > 0;
+ALTER TABLE bairro AUTO_INCREMENT = 1;
 
 INSERT INTO bairro (nome, codigo_cidade) 
 VALUES ('Moema', 1), 
@@ -16,6 +27,8 @@ VALUES ('Moema', 1),
 ('Barra', 4), 
 ('Batel', 5);
 
+delete from rua where id > 0;
+ALTER TABLE rua AUTO_INCREMENT = 1;
 
 INSERT INTO rua (nome, codigo_bairro, CEP) 
 VALUES ('Rua A', 1, '01234-567'), 
@@ -23,7 +36,6 @@ VALUES ('Rua A', 1, '01234-567'),
 ('Rua C', 3, '34567-890'), 
 ('Rua D', 4, '45678-901'), 
 ('Rua E', 5, '56789-012');        
-
 
 
 INSERT INTO clientes (nome, cpf, telefone, rua, numero, complemento) 

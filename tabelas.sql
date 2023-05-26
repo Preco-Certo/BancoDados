@@ -3,15 +3,9 @@ CREATE DATABASE bdprecocerto;
 
 USE bdprecocerto;
 
-CREATE TABLE compra_ingredientes(
-    codigo_ingrediente INT NOT NULL,   
-    codigo_compra INT NOT NULL,   
-    quantidade INT NOT NULL,
-    valor DECIMAL(10.2) NOT NULL,
-    PRIMARY KEY(codigo_ingrediente, codigo_compra)
-);
 
 
+-- INGREDIENTES ----------------------------------------------------------------
 
 CREATE TABLE ingredientes(
     id INT NOT NULL AUTO_INCREMENT,
@@ -23,6 +17,16 @@ CREATE TABLE ingredientes(
 );
 
 
+CREATE TABLE compra_ingredientes(
+    codigo_ingrediente INT NOT NULL,   
+    codigo_compra INT NOT NULL,   
+    quantidade INT NOT NULL,
+    valor DECIMAL(10.2) NOT NULL,
+    PRIMARY KEY(codigo_ingrediente, codigo_compra)
+);
+
+
+
 CREATE TABLE ingredientes_receitas (
     codigo_ingrediente INT NOT NULL,    
     codigo_receita INT NOT NULL,        
@@ -31,7 +35,17 @@ CREATE TABLE ingredientes_receitas (
     PRIMARY KEY(codigo_ingrediente, codigo_receita)
 );
 
+CREATE TABLE compra(
+    id INT NOT NULL AUTO_INCREMENT,
+    nf_pedido INT NOT NULL,
+    data DATE NOT NULL,
+    codigo_fornecedor INT NOT NULL,         
 
+    PRIMARY KEY(id)
+);
+
+
+-- PRODUTOS ----------------------------------------------------
 
 CREATE TABLE receitas(
     id INT NOT NULL auto_increment,
@@ -55,6 +69,17 @@ CREATE TABLE produtos(
 );
 
 
+CREATE TABLE preco(
+    id INT NOT NULL AUTO_INCREMENT,
+    data DATE NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    codigo_produto INT NOT NULL,        
+
+    PRIMARY KEY(id)
+);
+
+
+-- PEDIDOS --------------------------------------------------------
 
 CREATE TABLE produtos_pedidos(
     codigo_produto INT NOT NULL,   
@@ -82,33 +107,6 @@ CREATE TABLE pedidos(
 
 
 
-CREATE TABLE clientes(
-    id INT NOT NULL auto_increment,
-    nome VARCHAR(80) NOT NULL,
-    cpf VARCHAR(40) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
-    rua  INT NOT NULL,     
-    numero VARCHAR(30) NOT NULL,
-    complemento VARCHAR(80) NOT NULL,
-    PRIMARY KEY(id)
-);
-
-
-
-CREATE TABLE funcionarios(
-    id INT NOT NULL auto_increment,
-    nome VARCHAR(80) NOT NULL,
-    login VARCHAR(16) NOT NULL,
-    senha VARCHAR(16) NOT NULL,
-    nivel INT NOT NULL,
-    cpf VARCHAR(40) NOT NULL,
-    rua INT NOT NULL,   
-    numero VARCHAR(30) NOT NULL,
-    complemento VARCHAR(80) NOT NULL,
-    PRIMARY KEY (id)
-);
-
-
 
 CREATE TABLE pagamento(
     id INT NOT NULL AUTO_INCREMENT,
@@ -128,28 +126,37 @@ CREATE TABLE tipo_pagamento(
 
     PRIMARY KEY(id)
 );
-
-
-CREATE TABLE preco(
-    id INT NOT NULL AUTO_INCREMENT,
-    data DATE NOT NULL,
-    valor DECIMAL(10,2) NOT NULL,
-    codigo_produto INT NOT NULL,        
-
+-- CLIENTES ----------------------------------------------------   
+CREATE TABLE clientes(
+    id INT NOT NULL auto_increment,
+    nome VARCHAR(80) NOT NULL,
+    cpf VARCHAR(40) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    rua  INT NOT NULL,     
+    numero VARCHAR(30) NOT NULL,
+    complemento VARCHAR(80) NOT NULL,
     PRIMARY KEY(id)
 );
 
 
 
-CREATE TABLE compra(
-    id INT NOT NULL AUTO_INCREMENT,
-    nf_pedido INT NOT NULL,
-    data DATE NOT NULL,
-    codigo_fornecedor INT NOT NULL,         
+-- FUNCIONARIOS --------------------------------------------------
 
-    PRIMARY KEY(id)
+CREATE TABLE funcionarios(
+    id INT NOT NULL auto_increment,
+    nome VARCHAR(80) NOT NULL,
+    login VARCHAR(16) NOT NULL,
+    senha VARCHAR(16) NOT NULL,
+    nivel INT NOT NULL,
+    cpf VARCHAR(40) NOT NULL,
+    rua INT NOT NULL,   
+    numero VARCHAR(30) NOT NULL,
+    complemento VARCHAR(80) NOT NULL,
+    PRIMARY KEY (id)
 );
 
+
+-- FORNECEDORES --------------------------------------------------
 
 
 CREATE TABLE fornecedores(
@@ -163,6 +170,11 @@ CREATE TABLE fornecedores(
     complemento VARCHAR(80) NOT NULL,
     PRIMARY KEY(id)
 );
+
+
+
+
+-- ENDEREÇO ----------------------------------------------
 
 
 CREATE TABLE estado(
