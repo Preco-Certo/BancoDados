@@ -3,10 +3,6 @@ CREATE DATABASE bdprecocerto;
 
 USE bdprecocerto;
 
-
-
--- INGREDIENTES ----------------------------------------------------------------
-
 CREATE TABLE ingredientes(
     id INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(80) NOT NULL,
@@ -15,6 +11,18 @@ CREATE TABLE ingredientes(
 
     PRIMARY KEY(id)
 );
+
+
+CREATE TABLE compra(
+    id INT NOT NULL AUTO_INCREMENT,
+    nf_pedido INT NOT NULL,
+    data DATE NOT NULL,
+    codigo_fornecedor INT NOT NULL,         
+
+    PRIMARY KEY(id)
+);
+
+
 
 
 CREATE TABLE compra_ingredientes(
@@ -27,25 +35,6 @@ CREATE TABLE compra_ingredientes(
 
 
 
-CREATE TABLE ingredientes_receitas (
-    codigo_ingrediente INT NOT NULL,    
-    codigo_receita INT NOT NULL,        
-    quantidade INT NOT NULL,
-
-    PRIMARY KEY(codigo_ingrediente, codigo_receita)
-);
-
-CREATE TABLE compra(
-    id INT NOT NULL AUTO_INCREMENT,
-    nf_pedido INT NOT NULL,
-    data DATE NOT NULL,
-    codigo_fornecedor INT NOT NULL,         
-
-    PRIMARY KEY(id)
-);
-
-
--- PRODUTOS ----------------------------------------------------
 
 CREATE TABLE receitas(
     id INT NOT NULL auto_increment,
@@ -56,6 +45,21 @@ CREATE TABLE receitas(
 
     PRIMARY KEY (id)
 );
+
+
+
+CREATE TABLE ingredientes_receitas (
+    codigo_ingrediente INT NOT NULL,    
+    codigo_receita INT NOT NULL,        
+    quantidade INT NOT NULL,
+
+    PRIMARY KEY(codigo_ingrediente, codigo_receita)
+);
+
+
+
+
+
 
 
 CREATE TABLE produtos(
@@ -69,6 +73,7 @@ CREATE TABLE produtos(
 );
 
 
+
 CREATE TABLE preco(
     id INT NOT NULL AUTO_INCREMENT,
     data DATE NOT NULL,
@@ -77,19 +82,6 @@ CREATE TABLE preco(
 
     PRIMARY KEY(id)
 );
-
-
--- PEDIDOS --------------------------------------------------------
-
-CREATE TABLE produtos_pedidos(
-    codigo_produto INT NOT NULL,   
-    codigo_pedido INT NOT NULL,    
-    quantidade INT NOT NULL,
-
-    PRIMARY KEY (codigo_produto, codigo_pedido)
-
-);
-
 
 
 
@@ -106,6 +98,14 @@ CREATE TABLE pedidos(
 );
 
 
+CREATE TABLE produtos_pedidos(
+    codigo_produto INT NOT NULL,   
+    codigo_pedido INT NOT NULL,    
+    quantidade INT NOT NULL,
+
+    PRIMARY KEY (codigo_produto, codigo_pedido)
+
+);
 
 
 CREATE TABLE pagamento(
@@ -119,6 +119,7 @@ CREATE TABLE pagamento(
 );
 
 
+
 CREATE TABLE tipo_pagamento(
     id INT NOT NULL AUTO_INCREMENT,
     tipo INT NOT NULL,
@@ -126,7 +127,9 @@ CREATE TABLE tipo_pagamento(
 
     PRIMARY KEY(id)
 );
--- CLIENTES ----------------------------------------------------   
+
+
+
 CREATE TABLE clientes(
     id INT NOT NULL auto_increment,
     nome VARCHAR(80) NOT NULL,
@@ -140,7 +143,6 @@ CREATE TABLE clientes(
 
 
 
--- FUNCIONARIOS --------------------------------------------------
 
 CREATE TABLE funcionarios(
     id INT NOT NULL auto_increment,
@@ -156,9 +158,6 @@ CREATE TABLE funcionarios(
 );
 
 
--- FORNECEDORES --------------------------------------------------
-
-
 CREATE TABLE fornecedores(
     id INT NOT NULL auto_increment,
     razaosocial VARCHAR(80) NOT NULL,
@@ -171,10 +170,6 @@ CREATE TABLE fornecedores(
     PRIMARY KEY(id)
 );
 
-
-
-
--- ENDEREÇO ----------------------------------------------
 
 
 CREATE TABLE estado(
@@ -193,12 +188,14 @@ CREATE TABLE cidade(
 );
 
 
+
 CREATE TABLE bairro(
     id INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     codigo_cidade INT NOT NULL,   
     PRIMARY KEY(id)  
 );
+
 
 
 
@@ -209,3 +206,4 @@ CREATE TABLE rua(
     CEP VARCHAR(50) NOT NULL,
     PRIMARY KEY(id)
 );
+
