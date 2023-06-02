@@ -43,6 +43,9 @@ SELECT * FROM receitas WHERE data_criacao LIKE '%01';
 -- Retorna todas as colunas de todas as linhas da tabela "receitas" onde o valor de "data_criacao" começa com '2023-01'
 SELECT * FROM receitas WHERE data_criacao LIKE '2023-01%';
 
+--Essa linha de código cria uma tabela chamada "clientes" com as seguintes colunas: "id" (inteiro auto_increment), "nome" (texto), "cpf" (texto), "telefone" (texto), "rua" (inteiro), "numero" (texto) e "complemento" (texto). A coluna "id" é definida como a chave primária da tabela. Isso significa que cada linha da tabela terá um valor único na coluna "id"
+SELECT * FROM clientes WHERE nome LIKE '%Silva%';
+
 -- Retorna todas as colunas de todas as linhas da tabela "receitas" onde o valor de "taxa" é 0.5 ou 0.6
 SELECT * FROM receitas WHERE taxa IN (0.5, 0.6);
 
