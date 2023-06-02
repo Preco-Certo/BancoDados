@@ -14,14 +14,16 @@ SELECT * INTO nova_tabela FROM pedidos WHERE codigo_cliente = 1;
 
 
 
--- selecionando todos os pedidos que têm uma correspondência na tabela de clientes.
+-- Retorna a coluna "total" e uma nova coluna chamada "classificacao"
+-- A nova coluna "classificacao" atribuirá uma classificação com base no valor da coluna "total"
 SELECT total,
     CASE
-        WHEN total > 50 THEN 'Alto'
-        WHEN total > 30 THEN 'Médio'
-        ELSE 'Baixo'
-    END AS classificacao
-FROM pedidos;
+        WHEN total > 50 THEN 'Alto'   -- Se o valor da coluna "total" for maior que 50, a classificação será 'Alto'
+        WHEN total > 30 THEN 'Médio'  -- Caso contrário, se o valor da coluna "total" for maior que 30, a classificação será 'Médio'
+        ELSE 'Baixo'                 -- Caso contrário, ou seja, se o valor da coluna "total" for menor ou igual a 30, a classificação será 'Baixo'
+    END AS classificacao             -- Define o alias "classificacao" para a nova coluna criada pelo CASE statement
+FROM pedidos;                        -- Retorna os resultados da tabela "pedidos"
+
 
 --todos os pedidos que têm uma correspondência na tabela de clientes
 SELECT * FROM pedidos
